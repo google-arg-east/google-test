@@ -45,9 +45,7 @@ function App() {
       return;
     }
 
-    let f: () => any;
-
-    f = async () => {
+    const f = async () => {
       setIsLoading(true);
       await wait(10000);
       setIsLoading(false);
@@ -56,7 +54,7 @@ function App() {
     f();
   }
 
-  async function handleSubmit(e: any) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log("hola mundo submit")
 
