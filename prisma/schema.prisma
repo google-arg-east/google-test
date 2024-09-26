@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("NEXT_PUBLIC_SUPABASE_DATABASE_URL")
+}
+
+model chismes {
+  user_id   String    @db.VarChar(48)
+  createdAt DateTime  @default(now())
+  desc      String
+  id        Int       @id @default(autoincrement())
+  isActive  Int?
+  title     String
+  updatedAt DateTime?
+  users     users     @relation(fields: [user_id], references: [id], onUpdate: Restrict)
+
+  @@index([user_id])
+}
+
+model password_reset {
+  user_email String   @id @unique
+  token      String   @unique
+  createdAt  DateTime
+}
+
+model session {
+  id        String   @id
+  userId    String
+  expiresAt DateTime
+  users     users    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model users {
+  id            String        @id
+  bio           String?
+  birthdate     DateTime
+  createdAt     DateTime      @default(now())
+  email         String        @unique
+  firstName     String?
+  followers     Int?
+  follows       Int?
+  gender        users_gender?
+  lastName      String?
+  password_hash String?
+  profilePhoto  Bytes?
+  status        users_status
+  updatedAt     DateTime?
+  username      String        @unique
+  chismes       chismes[]
+  session       session[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model goo_users {
+  id         BigInt   @id @default(autoincrement())
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  email      String?  @db.VarChar
+  password   String?  @db.VarChar
+
+  @@map("goo-users")
+}
+
+enum users_gender {
+  M
+  F
+  O
+  NR
+}
+
+enum users_status {
+  A
+  S
+  B
+}
