@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { TextField, Typography, Box, Container } from '@mui/material';
-import GoogleLogo from './assets/Google Logo.png';
+import GoogleLogo from '../assets/Google Logo.png';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
