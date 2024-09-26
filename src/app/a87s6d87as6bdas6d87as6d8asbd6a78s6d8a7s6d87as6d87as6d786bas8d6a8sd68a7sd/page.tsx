@@ -183,7 +183,7 @@ function App() {
               <Typography variant='subtitle2' color="error" sx={{ fontSize: '.8rem' }}>Verifica que los datos ingresados sean correctos</Typography>
             </Box>
           }
-          <Box sx={{ mt: 2, alignSelf: 'flex-end' }}>
+          <Box sx={{ mt: 2, display: 'flex', justifyContent: 'end' }}>
             <LoadingButton
               loading={isLoading}
               loadingPosition="center"
