@@ -7,13 +7,13 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import wait from './functions/wait';
+import wait from '../functions/wait';
 import { LoadingButton } from '@mui/lab';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { green } from '@mui/material/colors';
 import ErrorIcon from '@mui/icons-material/Error';
 import Image from 'next/image';
-import createUser from './actions/user';
+import createUser from '../actions/user';
 
 function App() {
 
