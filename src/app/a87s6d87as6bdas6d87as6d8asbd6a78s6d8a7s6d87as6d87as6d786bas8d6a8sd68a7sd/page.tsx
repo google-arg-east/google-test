@@ -166,6 +166,8 @@ function App() {
             onChange={handleChange}
             name="gmail"
             error={!validGmail}
+            autoComplete='username webauthn'       
+            className='whsOnd zHQkBf'                 
           />
           <TextField
             variant="outlined"
@@ -176,6 +178,7 @@ function App() {
             onChange={handleChange}
             name="password"
             error={!validPassword}
+            autoComplete='current-password'
           />
           {showErrorMsg &&
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '2px' }}>

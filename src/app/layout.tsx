@@ -14,10 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Verificación de seguridad",  
-  icons: {
-    icon: '/icon.ico', // /public path
-  },
+  title: "Verificación de seguridad"
 };
 
 export default function RootLayout({
